@@ -10,8 +10,11 @@ app.use(express.json());
 // Routes
 const uri = process.env.ATLAS_URI;
 mongoose.connect(uri, {useNewUrlParser: true, useUnifiedTopology: true, })
-const connection = mongoose.connection;
 
+const connection = mongoose.connection;
+connection.once('open', () =>{
+    console.log("MongoDB database connection established succesfully");
+})
 
 
 const attractionsRouter = require('./routes/attractions')
@@ -26,6 +29,6 @@ app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
 // Connect to MongoDB
-connection.once('open', () =>{
-    console.log("MongoDB database connection established succesfully");
-})
+if(process.env.NODE_ENV === 'production'){
+  app.use(express.static('client/build'))
+}
