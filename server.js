@@ -10,7 +10,7 @@ app.use(express.json());
 // Routes
 const attractionsRouter = require("./routes/attractions");
 app.use("/attractions", attractionsRouter);
-app.get("/", (req, res) => res.render("home"));
+
 // Start the server
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
