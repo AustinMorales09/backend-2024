@@ -25,7 +25,7 @@ app.set('view engine', 'ejs');
 // const historyRouter = require('../backend/routes/history')
 // const outdoorsRouter = require('../backend/routes/outdoors')
 // const sportsRouter = require('../backend/routes/sports')
-   const attractionsRouter = require('../backend/routes/attractions')
+   const attractionsRouter = require('./routes/attractions')
    // const authRoutes = ('../routes/authRoutes')
 // app.use('/arts', artsRouter)
 // app.use('/family', familyRouter)
