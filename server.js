@@ -10,8 +10,6 @@ app.use(express.json());
 // Routes
 const uri = process.env.ATLAS_URI;
 mongoose.connect(uri, {useNewUrlParser: true, useUnifiedTopology: true, })
-.then((result) => app.listen(3000))
-.catch((err) => console.log(err));
 const connection = mongoose.connection;
 
 
