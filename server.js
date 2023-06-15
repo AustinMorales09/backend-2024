@@ -13,9 +13,7 @@ mongoose.connect(uri, {useNewUrlParser: true, useUnifiedTopology: true, })
 .then((result) => app.listen(3000))
 .catch((err) => console.log(err));
 const connection = mongoose.connection;
-connection.once('open', () =>{
-    console.log("MongoDB database connection established succesfully");
-})
+
 
 
 const attractionsRouter = require('./routes/attractions')
@@ -30,3 +28,6 @@ app.use(function(req, res, next) {
   next();
 });
 // Connect to MongoDB
+connection.once('open', () =>{
+    console.log("MongoDB database connection established succesfully");
+})
