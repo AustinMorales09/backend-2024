@@ -18,14 +18,14 @@ const connection = mongoose.connection;
 
 const attractionsRouter = require('./routes/attractions')
 app.use('/attractions', attractionsRouter)
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  next();
+});
 // app.get('/', (req, res) => res.render('home'));
 // Start the server
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
-});
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  next();
 });
 // Connect to MongoDB
 connection.once('open', () =>{
