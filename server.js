@@ -29,10 +29,10 @@ app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
 // Connect to MongoDB
- app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  next();
-});
+//  app.use(function (req, res, next) {
+//   res.header("Access-Control-Allow-Origin", "*");
+//   next();
+// });
 // comment
 
 if(process.env.NODE_ENV === 'production'){
