@@ -18,21 +18,21 @@ const connection = mongoose.connection;
 connection.once("open", () => {
   console.log("MongoDB database connection established succesfully");
 });
-
+// comment
 // Routes
 const attractionsRouter = require("./routes/attractions");
 app.use("/attractions", attractionsRouter);
 
-app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  next();
-});
+
 // Start the server
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
 // Connect to MongoDB
- 
+ app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  next();
+});
 
 
 if(process.env.NODE_ENV === 'production'){
