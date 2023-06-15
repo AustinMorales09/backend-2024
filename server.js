@@ -38,3 +38,7 @@ const connection = mongoose.connection;
 connection.once('open', () =>{
     console.log("MongoDB database connection established succesfully");
 })
+
+if(process.env.NODE_ENV === 'production'){
+   app.use(express.static('client/build'))
+ }
